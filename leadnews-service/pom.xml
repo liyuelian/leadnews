@@ -21,20 +21,22 @@
     </properties>
 
     <dependencies>
-        <!-- 引入依赖模块 -->
+        <!-- 存放实体类和dto -->
         <dependency>
             <groupId>com.li</groupId>
             <artifactId>leadnews-model</artifactId>
         </dependency>
+        <!--通用的配置-->
         <dependency>
             <groupId>com.li</groupId>
             <artifactId>leadnews-common</artifactId>
         </dependency>
+        <!--feign对外统一的接口-->
         <dependency>
             <groupId>com.li</groupId>
             <artifactId>leadnews-feign-api</artifactId>
         </dependency>
-        <!-- Spring boot starter -->
+        <!-- Spring boot web starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -44,10 +46,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--nacos注册中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!--nacos配置中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>

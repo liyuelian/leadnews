@@ -1,8 +1,8 @@
-package com.user.mapper;
+package com.li.user.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.model.user.pojos.ApUser;
+import com.li.model.user.pojos.ApUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

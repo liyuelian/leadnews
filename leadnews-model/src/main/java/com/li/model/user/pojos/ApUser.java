@@ -1,4 +1,4 @@
-package com.model.user.pojos;
+package com.li.model.user.pojos;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -1,7 +1,6 @@
-package com.app.gateway.filter;
+package com.li.app.gateway.filter;
 
-
-import com.app.gateway.util.AppJwtUtil;
+import com.li.app.gateway.utils.AppJwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -15,52 +14,65 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+/**
+ * @Author: liyuelian
+ * @Date: 2024/7/11 00:16
+ * @Description:
+ **/
 @Component
 @Slf4j
 public class AuthorizeFilter implements Ordered, GlobalFilter {
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        //1.获取request和response对象
+        //1.判断是否为登录请求
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
 
-        //2.判断是否是登录
-        if(request.getURI().getPath().contains("/login")){
-            //放行
-            return chain.filter(exchange);
-        }
-
-
-        //3.获取token
-        String token = request.getHeaders().getFirst("token");
-
-        //4.判断token是否存在
-        if(StringUtils.isBlank(token)){
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+        if (request.getURI().getPath() == null) {
+            //返回错误
+            response.setStatusCode(HttpStatus.NOT_FOUND);
+            //结束请求
             return response.setComplete();
         }
 
-        //5.判断token是否有效
+        //是否为登录请求
+        if (request.getURI().getPath().contains("/login")) {
+            //直接放行
+            return chain.filter(exchange);
+        }
+
+        //2.非登录请求
+        String token = request.getHeaders().getFirst("token");
+
+        //token是否为空
+        if (StringUtils.isBlank(token)) {
+            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            //结束请求
+            return response.setComplete();
+        }
+
+        //获取token
         try {
             Claims claimsBody = AppJwtUtil.getClaimsBody(token);
-            //是否是过期
+            //是否过期(-1：有效，0：有效，1：过期，2：过期)
             int result = AppJwtUtil.verifyToken(claimsBody);
-            if(result == 1 || result  == 2){
+            if (result == 1 || result == 2) {
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 return response.setComplete();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             return response.setComplete();
         }
 
-        //6.放行
         return chain.filter(exchange);
     }
 
     /**
-     * 优先级设置  值越小  优先级越高
+     * 指定过滤器的执行顺序，值越小，执行顺序越靠前
+     *
      * @return
      */
     @Override

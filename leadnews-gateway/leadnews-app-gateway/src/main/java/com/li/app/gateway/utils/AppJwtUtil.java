@@ -1,4 +1,4 @@
-package com.app.gateway.util;
+package com.li.app.gateway.utils;
 
 import io.jsonwebtoken.*;
 
@@ -10,7 +10,7 @@ public class AppJwtUtil {
 
     // TOKEN的有效期一天（S）
     private static final int TOKEN_TIME_OUT = 3_600;
-    // 加密KEY
+    // 加密KEY,这个key其实可以放到数据库中，然后启动项目的时候作为全局参数获取
     private static final String TOKEN_ENCRY_KEY = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY";
     // 最小刷新间隔(S)
     private static final int REFRESH_TIME = 300;
@@ -24,7 +24,7 @@ public class AppJwtUtil {
                 .setId(UUID.randomUUID().toString())
                 .setIssuedAt(new Date(currentTime))  //签发时间
                 .setSubject("system")  //说明
-                .setIssuer("heima") //签发者信息
+                .setIssuer("liyuelian") //签发者信息
                 .setAudience("app")  //接收用户
                 .compressWith(CompressionCodecs.GZIP)  //数据压缩方式
                 .signWith(SignatureAlgorithm.HS512, generalKey()) //加密方式

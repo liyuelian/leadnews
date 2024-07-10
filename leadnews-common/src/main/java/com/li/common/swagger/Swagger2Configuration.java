@@ -1,4 +1,4 @@
-package com.common.swagger;
+package com.li.common.swagger;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +27,7 @@ public class Swagger2Configuration {
                 .groupName("1.0")
                 .select()
                 //这里指定Controller扫描包路径
-                .apis(RequestHandlerSelectors.basePackage("com.heima"))
+                .apis(RequestHandlerSelectors.basePackage("com.li"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;

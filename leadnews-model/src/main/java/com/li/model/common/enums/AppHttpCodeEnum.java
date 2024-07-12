@@ -1,4 +1,4 @@
-package com.model.common.enums;
+package com.li.model.common.enums;
 
 public enum AppHttpCodeEnum {
 

@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 import javax.swing.border.TitledBorder;
 import java.text.NumberFormat;

@@ -1,4 +1,4 @@
-package com.model.common.dtos;
+package com.li.model.common.dtos;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

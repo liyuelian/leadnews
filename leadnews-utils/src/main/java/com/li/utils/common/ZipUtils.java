@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

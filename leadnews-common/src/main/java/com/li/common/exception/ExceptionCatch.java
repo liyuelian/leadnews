@@ -1,8 +1,8 @@
-package com.common.exception;
+package com.li.common.exception;
 
 
-import com.model.common.dtos.ResponseResult;
-import com.model.common.enums.AppHttpCodeEnum;
+import com.li.model.common.dtos.ResponseResult;
+import com.li.model.common.enums.AppHttpCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

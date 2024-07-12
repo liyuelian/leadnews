@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

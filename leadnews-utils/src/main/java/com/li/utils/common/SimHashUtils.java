@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;

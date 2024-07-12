@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 /**
  * 分片桶字段算法

@@ -1,7 +1,7 @@
-package com.model.common.dtos;
+package com.li.model.common.dtos;
 
 import com.alibaba.fastjson.JSON;
-import com.model.common.enums.AppHttpCodeEnum;
+import com.li.model.common.enums.AppHttpCodeEnum;
 
 import java.io.Serializable;
 import java.util.ArrayList;

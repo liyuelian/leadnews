@@ -1,4 +1,4 @@
-package com.model.common.dtos;
+package com.li.model.common.dtos;
 
 import java.io.Serializable;
 

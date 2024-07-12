@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;

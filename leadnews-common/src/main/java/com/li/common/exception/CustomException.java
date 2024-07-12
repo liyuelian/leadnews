@@ -1,6 +1,6 @@
-package com.common.exception;
+package com.li.common.exception;
 
-import com.model.common.enums.AppHttpCodeEnum;
+import com.li.model.common.enums.AppHttpCodeEnum;
 
 /**
  * 自定义异常

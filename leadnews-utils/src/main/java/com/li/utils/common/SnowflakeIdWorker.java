@@ -1,4 +1,4 @@
-package com.utils.common;
+package com.li.utils.common;
 
 /**
  * Twitter_Snowflake<br>

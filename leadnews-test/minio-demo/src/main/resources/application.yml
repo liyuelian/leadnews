@@ -1,0 +1,6 @@
+minio:
+  accessKey: root   #账号
+  secretKey: 12345678 #密码
+  bucket: leadnews    #通名称
+  endpoint: http://139.159.245.79:9000  #上传服务器地址
+  readPath: http://139.159.245.79:9000  #读文件路径

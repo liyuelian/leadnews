@@ -1,9 +1,14 @@
 package com.li.wemedia.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.li.file.service.FileStorageService;
+import com.li.model.common.dtos.PageResponseResult;
 import com.li.model.common.dtos.ResponseResult;
 import com.li.model.common.enums.AppHttpCodeEnum;
+import com.li.model.wemedia.dtos.WmMaterialDto;
 import com.li.model.wemedia.pojos.WmMaterial;
 import com.li.utils.thread.WmThreadLocalUtil;
 import com.li.wemedia.mapper.WmMaterialMapper;
@@ -25,7 +30,6 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMaterial> implements WmMaterialService {
-
     @Resource
     private FileStorageService fileStorageService;
 
@@ -61,5 +65,36 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
 
         //4.返回结果
         return ResponseResult.okResult(wmMaterial);
+    }
+
+    @Override
+    public ResponseResult findPicList(WmMaterialDto dto) {
+        //1.参数校验
+        if (dto == null) {
+            ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        dto.checkParam();
+
+        //2.分页查询
+        IPage page = new Page<>(dto.getPage(), dto.getSize());
+        LambdaQueryWrapper<WmMaterial> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        //是否收藏
+        if (dto.getIsCollection() != null && dto.getIsCollection() == 1) {
+            lambdaQueryWrapper.eq(WmMaterial::getIsCollection, dto.getIsCollection());
+        }
+
+        //按照用户查询
+        lambdaQueryWrapper.eq(WmMaterial::getUserId, WmThreadLocalUtil.getUser().getId());
+
+        //按照时间倒序查询
+        lambdaQueryWrapper.orderByDesc(WmMaterial::getCreatedTime);
+
+        page = page(page, lambdaQueryWrapper);
+
+        //3.返回结果
+        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), (int) page.getTotal());
+        responseResult.setData(page.getRecords());
+        return responseResult;
     }
 }

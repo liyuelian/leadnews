@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PageRequestDto {
 
-    protected Integer size;
-    protected Integer page;
+    protected Integer size; //分页大小
+    protected Integer page; //当前页
 
     public void checkParam() {
         if (this.page == null || this.page < 0) {

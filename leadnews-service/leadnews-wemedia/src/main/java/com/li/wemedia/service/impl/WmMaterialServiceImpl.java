@@ -15,6 +15,7 @@ import com.li.wemedia.mapper.WmMaterialMapper;
 import com.li.wemedia.service.WmMaterialService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ import java.util.UUID;
  **/
 @Service
 @Slf4j
+@Transactional
 public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMaterial> implements WmMaterialService {
     @Resource
     private FileStorageService fileStorageService;

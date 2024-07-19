@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
-@Api(value = "自媒体web端用户登录", tags = "自媒体web端用户登录")
+@Api(value = "自媒体端-用户登录", tags = "自媒体端-用户登录")
 public class LoginController {
 
     @Autowired

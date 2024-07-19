@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  **/
 @RestController
 @RequestMapping("/api/v1/channel/")
-@Api(value = "频道列表管理", tags = "频道列表管理")
+@Api(value = "自媒体端-频道列表管理", tags = "自媒体端-频道列表管理")
 public class WmChannelController {
     @Resource
     private WmChannelService wmChannelService;

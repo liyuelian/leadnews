@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  **/
 @RestController
 @RequestMapping("/api/v1/material")
-@Api(value = "自媒体素材管理", tags = "自媒体素材管理")
+@Api(value = "自媒体端-素材管理", tags = "自媒体端-素材管理")
 public class WmMaterialController {
     @Resource
     private WmMaterialService wmMaterialService;

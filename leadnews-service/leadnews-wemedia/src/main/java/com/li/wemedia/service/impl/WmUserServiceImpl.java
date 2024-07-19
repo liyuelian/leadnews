@@ -9,6 +9,7 @@ import com.li.model.wemedia.pojos.WmUser;
 import com.li.utils.common.AppJwtUtil;
 import com.li.wemedia.mapper.WmUserMapper;
 import com.li.wemedia.service.WmUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class WmUserServiceImpl extends ServiceImpl<WmUserMapper, WmUser> implements WmUserService {
 
     @Override

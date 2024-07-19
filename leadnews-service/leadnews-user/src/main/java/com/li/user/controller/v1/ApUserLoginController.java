@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController //@RestController 返回的数据会直接作为响应的主体内容（JSON 或 XML），不进行页面跳转或视图解析
 @RequestMapping("/api/v1/login")
-@Api(value = "app端用户登录", tags = "app端用户登录")
+@Api(value = "app端-用户登录", tags = "app端-用户登录")
 public class ApUserLoginController {
 
     @Autowired
